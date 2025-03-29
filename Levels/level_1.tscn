@@ -1,34 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://dqjrns4brcvbp"]
+[gd_scene load_steps=3 format=3 uid="uid://dqjrns4brcvbp"]
 
 [ext_resource type="PackedScene" uid="uid://ce7qf4jekxtq4" path="res://Models/plane.tscn" id="1_ppdej"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_e48dx"]
-size = Vector3(5, 0.5, 100)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_u5ex5"]
-size = Vector3(5, 0.5, 100)
+[ext_resource type="PackedScene" uid="uid://2umq8nxhq2bi" path="res://Models/track.tscn" id="2_gpkf1"]
 
 [node name="Level1" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.77587, 0.630893, 0, -0.630893, 0.77587, 0, 6.65624, 10.3704)
+transform = Transform3D(1, 0, 0, 0, 0.77587, 0.630893, 0, -0.630893, 0.77587, -50.3275, 6.65624, -17.4171)
 
-[node name="Floor" type="StaticBody3D" parent="."]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
-mesh = SubResource("BoxMesh_e48dx")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
-shape = SubResource("BoxShape3D_u5ex5")
-
-[node name="Floor2" type="StaticBody3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, -18.3998)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor2"]
-mesh = SubResource("BoxMesh_e48dx")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor2"]
-shape = SubResource("BoxShape3D_u5ex5")
+[node name="Floor" parent="." instance=ExtResource("2_gpkf1")]
 
 [node name="Plane" parent="." instance=ExtResource("1_ppdej")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.29977, 50.4263)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -76.9879, 6.84768, 121.339)

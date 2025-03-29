@@ -1,32 +1,31 @@
 [gd_scene load_steps=5 format=3 uid="uid://ce7qf4jekxtq4"]
 
-[ext_resource type="Script" path="res://Models/plane.gd" id="1_371nr"]
+[ext_resource type="Script" path="res://Scripts/plane.gd" id="1_u3iqv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p44tk"]
 albedo_color = Color(0, 1, 1, 1)
 
 [sub_resource type="PrismMesh" id="PrismMesh_lo58f"]
 material = SubResource("StandardMaterial3D_p44tk")
+size = Vector3(1.5, 2, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_raj7l"]
-size = Vector3(1, 0.3, 1)
+size = Vector3(0.7, 0.3, 1.5)
 
 [node name="Plane" type="CharacterBody3D"]
-script = ExtResource("1_371nr")
+script = ExtResource("1_u3iqv")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 0.3, 0, -1, -1.31134e-08, 0, 0, 0)
 mesh = SubResource("PrismMesh_lo58f")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0687707, 0)
 shape = SubResource("BoxShape3D_raj7l")
 
 [node name="CameraController" type="Node3D" parent="."]
-top_level = true
 
 [node name="CameraTarget" type="Node3D" parent="CameraController"]
-transform = Transform3D(1, 0, 0, 0, 0.793884, 0.608069, 0, -0.608069, 0.793884, 0, 1.67587, 1.7785)
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 2.25793, 2.65875)
 
 [node name="Camera3D" type="Camera3D" parent="CameraController/CameraTarget"]
 current = true
